@@ -1,0 +1,62 @@
+.home {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+  border-radius: 12px;
+  margin: 30px 0;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  color: #1a237e;
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #424242;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.services {
+  padding: 40px 0;
+}
+
+.services h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #1a237e;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 16px 0;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+  }
+  
+  .services h2 {
+    font-size: 2rem;
+  }
+} 
