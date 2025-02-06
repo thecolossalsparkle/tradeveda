@@ -26,9 +26,9 @@ const Navbar = () => {
 
         <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
           <Link to="/" className="nav-link" onClick={toggleMenu}>Home</Link>
-          <Link to="/export-verification" className="nav-link" onClick={toggleMenu}>Export Verification</Link>
-          <Link to="/compliance-check" className="nav-link" onClick={toggleMenu}>Compliance Check</Link>
+          <Link to="/export-verification" className="nav-link" onClick={toggleMenu}>Export Details</Link>
           <Link to="/document-verification" className="nav-link" onClick={toggleMenu}>Document Verification</Link>
+          <Link to="/compliance-check" className="nav-link" onClick={toggleMenu}>Compliance Check</Link>
         </div>
       </div>
     </nav>
