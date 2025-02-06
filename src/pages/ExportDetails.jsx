@@ -1,6 +1,67 @@
 import { useState } from 'react';
 import './ExportDetails.css';
 
+const ChatBot = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState([
+    { text: "Hello! I'm your export assistant. How can I help you today?", isBot: true }
+  ]);
+  const [inputMessage, setInputMessage] = useState('');
+
+  const handleSendMessage = (e) => {
+    e.preventDefault();
+    if (!inputMessage.trim()) return;
+
+    // Add user message
+    setMessages(prev => [...prev, { text: inputMessage, isBot: false }]);
+
+    // Simulate bot response
+    setTimeout(() => {
+      setMessages(prev => [...prev, {
+        text: "Thank you for your message. Our team will assist you with your export-related questions shortly.",
+        isBot: true
+      }]);
+    }, 1000);
+
+    setInputMessage('');
+  };
+
+  return (
+    <div className="chatbot-wrapper">
+      {isOpen ? (
+        <div className="chatbot-container">
+          <div className="chatbot-header">
+            <h3>Export Assistant</h3>
+            <button className="close-button" onClick={() => setIsOpen(false)}>×</button>
+          </div>
+          <div className="chatbot-messages">
+            {messages.map((message, index) => (
+              <div key={index} className={`message ${message.isBot ? 'bot' : 'user'}`}>
+                {message.text}
+              </div>
+            ))}
+          </div>
+          <form onSubmit={handleSendMessage} className="chatbot-input">
+            <input
+              type="text"
+              value={inputMessage}
+              onChange={(e) => setInputMessage(e.target.value)}
+              placeholder="Type your message..."
+            />
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      ) : (
+        <button className="chat-toggle-button" onClick={() => setIsOpen(true)}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+        </button>
+      )}
+    </div>
+  );
+};
+
 const ExportDetails = () => {
   const [formData, setFormData] = useState({
     exportCountry: '',
@@ -107,107 +168,110 @@ const ExportDetails = () => {
     <div className="page-container">
       <h1>Export Certifications and Documents Search</h1>
       <div className="content">
-        <div className="export-form-container">
-          <div className="form-group">
-            <label htmlFor="exportCountry">Export Country</label>
-            <input
-              type="text"
-              id="exportCountry"
-              name="exportCountry"
-              className="form-control"
-              placeholder="Enter export destination country"
-              value={formData.exportCountry}
-              onChange={handleInputChange}
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="productCategory">Product Category</label>
-            <select 
-              id="productCategory" 
-              name="productCategory"
-              className="form-control"
-              value={formData.productCategory}
-              onChange={handleInputChange}
-            >
-              <option value="">Select a category</option>
-              {productCategories.map((category, index) => (
-                <option key={index} value={category.toLowerCase()}>
-                  {category}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="hsCode">HS Code</label>
-            <select 
-              id="hsCode" 
-              name="hsCode"
-              className="form-control"
-              value={formData.hsCode}
-              onChange={handleInputChange}
-            >
-              <option value="">Select HS Code</option>
-              {hsCodes.map((item, index) => (
-                <option key={index} value={item.code}>
-                  {item.code} - {item.description}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label>First Time Export?</label>
-            <div className="radio-group">
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  name="firstTimeExport"
-                  value="yes"
-                  checked={formData.firstTimeExport === 'yes'}
-                  onChange={handleInputChange}
-                />
-                <span>Yes</span>
-              </label>
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  name="firstTimeExport"
-                  value="no"
-                  checked={formData.firstTimeExport === 'no'}
-                  onChange={handleInputChange}
-                />
-                <span>No</span>
-              </label>
+        <div className="main-content">
+          <div className="export-form-container">
+            <div className="form-group">
+              <label htmlFor="exportCountry">Export Country</label>
+              <input
+                type="text"
+                id="exportCountry"
+                name="exportCountry"
+                className="form-control"
+                placeholder="Enter export destination country"
+                value={formData.exportCountry}
+                onChange={handleInputChange}
+              />
             </div>
-          </div>
 
-          <button 
-            className="search-button" 
-            onClick={handleSearch}
-            disabled={!formData.exportCountry || !formData.productCategory || !formData.hsCode || !formData.firstTimeExport}
-          >
-            {!searchResult ? 'Verify Export Requirements' : 'Update Requirements'}
-          </button>
-
-          {searchResult && (
-            <div className="search-results">
-              <h3>Export Requirements Summary</h3>
-              <ul>
-                {searchResult.requirements.map((req, index) => (
-                  <li key={index}>
-                    <span className="requirement-bullet">•</span>
-                    <span>{req}</span>
-                  </li>
+            <div className="form-group">
+              <label htmlFor="productCategory">Product Category</label>
+              <select 
+                id="productCategory" 
+                name="productCategory"
+                className="form-control"
+                value={formData.productCategory}
+                onChange={handleInputChange}
+              >
+                <option value="">Select a category</option>
+                {productCategories.map((category, index) => (
+                  <option key={index} value={category.toLowerCase()}>
+                    {category}
+                  </option>
                 ))}
-              </ul>
-              <p><strong>Estimated Processing Time:</strong> {searchResult.estimatedTime}</p>
-              <p><strong>Additional Information:</strong> {searchResult.additionalInfo}</p>
+              </select>
             </div>
-          )}
+
+            <div className="form-group">
+              <label htmlFor="hsCode">HS Code</label>
+              <select 
+                id="hsCode" 
+                name="hsCode"
+                className="form-control"
+                value={formData.hsCode}
+                onChange={handleInputChange}
+              >
+                <option value="">Select HS Code</option>
+                {hsCodes.map((item, index) => (
+                  <option key={index} value={item.code}>
+                    {item.code} - {item.description}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label>First Time Export?</label>
+              <div className="radio-group">
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    name="firstTimeExport"
+                    value="yes"
+                    checked={formData.firstTimeExport === 'yes'}
+                    onChange={handleInputChange}
+                  />
+                  <span>Yes</span>
+                </label>
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    name="firstTimeExport"
+                    value="no"
+                    checked={formData.firstTimeExport === 'no'}
+                    onChange={handleInputChange}
+                  />
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+
+            <button 
+              className="search-button" 
+              onClick={handleSearch}
+              disabled={!formData.exportCountry || !formData.productCategory || !formData.hsCode || !formData.firstTimeExport}
+            >
+              {!searchResult ? 'Verify Export Requirements' : 'Update Requirements'}
+            </button>
+
+            {searchResult && (
+              <div className="search-results">
+                <h3>Export Requirements Summary</h3>
+                <ul>
+                  {searchResult.requirements.map((req, index) => (
+                    <li key={index}>
+                      <span className="requirement-bullet">•</span>
+                      <span>{req}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p><strong>Estimated Processing Time:</strong> {searchResult.estimatedTime}</p>
+                <p><strong>Additional Information:</strong> {searchResult.additionalInfo}</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
+      <ChatBot />
     </div>
   );
 }
