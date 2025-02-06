@@ -2,17 +2,17 @@
   max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
-  background: #ffffff;
+  background: white;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .document-verification h1 {
-  color: #1a1a1a;
-  font-size: 2rem;
+  color: #2c3e50;
+  font-size: 2.2rem;
   margin-bottom: 2rem;
-  font-weight: 600;
   text-align: center;
+  font-weight: 600;
 }
 
 .upload-section {
@@ -21,9 +21,9 @@
   gap: 1.5rem;
   align-items: center;
   padding: 2rem;
-  background: #f8f9fa;
+  background: #f8fafc;
   border-radius: 8px;
-  border: 2px dashed #dee2e6;
+  border: 2px dashed #cbd5e1;
 }
 
 .file-input-container {
@@ -37,64 +37,65 @@
 
 .file-label {
   display: block;
-  padding: 1rem;
-  background: #ffffff;
-  border: 1px solid #ced4da;
+  padding: 1rem 1.5rem;
+  background: white;
+  border: 2px solid #3b82f6;
   border-radius: 6px;
-  text-align: center;
-  color: #495057;
+  color: #3b82f6;
   cursor: pointer;
+  text-align: center;
   transition: all 0.3s ease;
-  font-size: 0.95rem;
-  white-space: nowrap;
+  font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .file-label:hover {
-  background: #f8f9fa;
-  border-color: #adb5bd;
+  background: #3b82f6;
+  color: white;
 }
 
 .verify-button {
-  padding: 0.8rem 2rem;
-  background: #0066cc;
+  padding: 1rem 2rem;
+  background: #3b82f6;
   color: white;
   border: none;
   border-radius: 6px;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
-  max-width: 400px;
+  transition: all 0.3s ease;
+  min-width: 200px;
 }
 
 .verify-button:hover {
-  background: #0052a3;
+  background: #2563eb;
+  transform: translateY(-1px);
 }
 
 .verify-button:disabled {
-  background: #cccccc;
+  background: #94a3b8;
   cursor: not-allowed;
+  transform: none;
 }
 
 .selected-file-info {
   margin-top: 2rem;
   padding: 1.5rem;
-  background: #f8f9fa;
+  background: #f8fafc;
   border-radius: 8px;
-  border: 1px solid #dee2e6;
+  border: 1px solid #e2e8f0;
 }
 
 .selected-file-info h3 {
-  color: #1a1a1a;
+  color: #334155;
   margin-bottom: 1rem;
   font-size: 1.2rem;
-  font-weight: 500;
 }
 
 .selected-file-info p {
-  color: #495057;
+  color: #64748b;
   margin: 0.5rem 0;
   font-size: 0.95rem;
 }
@@ -103,29 +104,34 @@
   margin-top: 2rem;
   padding: 1.5rem;
   border-radius: 8px;
+  animation: fadeIn 0.5s ease-in;
 }
 
 .verification-results.success {
-  background: #e8f5e9;
-  border: 1px solid #a5d6a7;
+  background-color: #e6f3ff;
+  border: 1px solid #99ccff;
+  color: #0066cc;
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 20px;
 }
 
 .verification-results.error {
-  background: #ffebee;
-  border: 1px solid #ffcdd2;
+  background-color: #ffe6e6;
+  border: 1px solid #ffcccc;
+  color: #cc0000;
 }
 
 .verification-results h3 {
-  color: #1a1a1a;
+  color: #334155;
   margin-bottom: 1rem;
   font-size: 1.2rem;
-  font-weight: 500;
 }
 
 .remarks {
-  font-size: 1rem;
-  color: #2e2e2e;
+  font-weight: 500;
   margin-bottom: 1rem;
+  color: #374151;
 }
 
 .verification-details {
@@ -136,32 +142,45 @@
 .detail-item {
   display: flex;
   justify-content: space-between;
-  padding: 0.8rem;
-  background: rgba(255, 255, 255, 0.7);
+  padding: 0.75rem;
+  background: white;
   border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  color: #0066cc;
 }
 
 .detail-field {
   font-weight: 500;
-  color: #2e2e2e;
+  color: #4b5563;
 }
 
 .detail-value {
-  color: #0066cc;
+  color: #059669;
   font-weight: 500;
 }
 
-@media (max-width: 600px) {
-  .document-verification {
-    padding: 1rem;
-    margin: 1rem;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+@media (max-width: 640px) {
+  .document-verification {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
   .upload-section {
     padding: 1rem;
   }
-
+  
   .verify-button {
-    padding: 0.7rem 1.5rem;
+    width: 100%;
   }
 } 

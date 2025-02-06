@@ -47,7 +47,7 @@ const ComplianceCheck = () => {
   return (
     <div className="page-container">
       <div className="compliance-header">
-        <h1>AI Invoice Assistant</h1>
+        <h1>Lading Lens</h1>
         <p className="subtitle">Get instant compliance analysis and suggestions for your invoices</p>
       </div>
 
