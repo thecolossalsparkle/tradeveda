@@ -75,22 +75,37 @@ const ExportDetails = () => {
   };
 
   const handleSearch = () => {
-    // Mock search result - replace with actual API call or data lookup
-    const result = {
-      requirements: [
-        "Import license required",
-        "Certificate of Origin needed",
-        "Quality certification mandatory",
-      ],
-      estimatedTime: "2-3 weeks",
-      additionalInfo: "Special regulations apply for first-time exporters"
+    setSearchResult(null);
+    
+    // Add loading state
+    const loadingResult = {
+      requirements: ['Loading requirements...'],
+      estimatedTime: 'Calculating...',
+      additionalInfo: 'Please wait...'
     };
-    setSearchResult(result);
+    setSearchResult(loadingResult);
+    
+    // Simulate API call
+    setTimeout(() => {
+      const result = {
+        requirements: [
+          "Import license required from destination country authorities",
+          "Certificate of Origin from Chamber of Commerce",
+          "Quality certification from authorized testing laboratory",
+          "Packaging and labeling compliance documentation"
+        ],
+        estimatedTime: "2-3 weeks",
+        additionalInfo: formData.firstTimeExport === 'yes' 
+          ? "As a first-time exporter, you'll need to register with the Export Authority and complete mandatory training."
+          : "Ensure all documentation is current and verified before submission."
+      };
+      setSearchResult(result);
+    }, 1000);
   };
 
   return (
     <div className="page-container">
-      <h1>Export Verification Details</h1>
+      <h1>Export Certifications and Documents Search</h1>
       <div className="content">
         <div className="export-form-container">
           <div className="form-group">
@@ -143,25 +158,27 @@ const ExportDetails = () => {
           </div>
 
           <div className="form-group">
-            <label>First Time Exporting?</label>
+            <label>First Time Export?</label>
             <div className="radio-group">
-              <label>
+              <label className="radio-label">
                 <input
                   type="radio"
                   name="firstTimeExport"
                   value="yes"
                   checked={formData.firstTimeExport === 'yes'}
                   onChange={handleInputChange}
-                /> Yes
+                />
+                <span>Yes</span>
               </label>
-              <label>
+              <label className="radio-label">
                 <input
                   type="radio"
                   name="firstTimeExport"
                   value="no"
                   checked={formData.firstTimeExport === 'no'}
                   onChange={handleInputChange}
-                /> No
+                />
+                <span>No</span>
               </label>
             </div>
           </div>
@@ -171,7 +188,7 @@ const ExportDetails = () => {
             onClick={handleSearch}
             disabled={!formData.exportCountry || !formData.productCategory || !formData.hsCode || !formData.firstTimeExport}
           >
-            Verify Export Requirements
+            {!searchResult ? 'Verify Export Requirements' : 'Update Requirements'}
           </button>
 
           {searchResult && (
@@ -180,7 +197,8 @@ const ExportDetails = () => {
               <ul>
                 {searchResult.requirements.map((req, index) => (
                   <li key={index}>
-                    <span className="requirement-bullet">•</span> {req}
+                    <span className="requirement-bullet">•</span>
+                    <span>{req}</span>
                   </li>
                 ))}
               </ul>
