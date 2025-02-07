@@ -119,3 +119,7 @@
     transform: translateY(-6px) rotate(-45deg);
   }
 }
+
+.productlogo{
+  font-weight: bold;
+}

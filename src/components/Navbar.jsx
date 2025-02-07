@@ -15,7 +15,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
           <img src={logo} alt="TradeVeda Logo" className="logo" />
-          <span>TradeVeda</span>
+          <span class="productlogo">TradeVeda</span>
         </Link>
         
         <div className="hamburger" onClick={toggleMenu}>
@@ -25,10 +25,10 @@ const Navbar = () => {
         </div>
 
         <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-          <Link to="/" className="nav-link" onClick={toggleMenu}>Home</Link>
-          <Link to="/export-verification" className="nav-link" onClick={toggleMenu}>Export Details</Link>
-          <Link to="/compliance-check" className="nav-link" onClick={toggleMenu}>Compliance Check</Link>
-          <Link to="/document-verification" className="nav-link" onClick={toggleMenu}>Document Verification</Link>
+          <Link to="/" className="nav-link" onClick={toggleMenu}>HOME</Link>
+          <Link to="/export-verification" className="nav-link" onClick={toggleMenu}>EXPORT DETAILS</Link>
+          <Link to="/compliance-check" className="nav-link" onClick={toggleMenu}>COMPLIANCE CHECK</Link>
+          <Link to="/document-verification" className="nav-link" onClick={toggleMenu}>DOCUMENT VERIFICATION</Link>
         </div>
       </div>
     </nav>
