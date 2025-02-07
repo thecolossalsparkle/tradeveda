@@ -4,7 +4,7 @@ import ServiceCard from '../components/ServiceCard';
 const Home = () => {
   const services = [
     {
-      title: 'Export Verification',
+      title: 'Export Details',
       description: 'Comprehensive verification of export documents and compliance with international trade regulations.',
       icon: '📄',
       link: '/export-verification',
