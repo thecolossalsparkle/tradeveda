@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <div className="home">
       <section className="hero">
-        <h1>Welcome to TradeVeda</h1>
+        <h1>Welcome to Tradeवेद</h1>
         <p>Your Trusted Partner in International Trade Compliance</p>
       </section>
       

@@ -15,7 +15,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
           <img src={logo} alt="TradeVeda Logo" className="logo" />
-          <span class="productlogo">TradeVeda</span>
+          <span class="productlogo">Tradeवेद</span>
         </Link>
         
         <div className="hamburger" onClick={toggleMenu}>
