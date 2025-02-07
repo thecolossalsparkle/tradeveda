@@ -55,7 +55,7 @@ const ComplianceCheck = () => {
         <div className="chat-sidebar">
           <div className="sidebar-header">
             <FiMessageSquare className="sidebar-icon" />
-            <h2>Invoice Analysis</h2>
+            <h2>Document Analysis</h2>
           </div>
           
           <div className="upload-section">

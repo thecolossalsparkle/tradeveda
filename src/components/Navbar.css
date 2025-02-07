@@ -64,6 +64,18 @@
 
 /* Mobile responsive styles */
 @media screen and (max-width: 768px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+
+  .navbar-logo span {
+    font-size: 1.2rem;
+  }
+
+  .logo {
+    height: 30px;
+  }
+
   .hamburger {
     display: block;
   }
@@ -77,11 +89,22 @@
     width: 100%;
     text-align: center;
     transition: 0.3s;
-    padding: 2rem 0;
+    padding: 1rem 0;
+    gap: 1rem;
   }
 
   .nav-menu.active {
     left: 0;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .bar {
+    width: 20px;
+    height: 2px;
+    margin: 4px auto;
   }
 
   .hamburger .bar.active:nth-child(2) {
@@ -89,10 +112,10 @@
   }
 
   .hamburger .bar.active:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(6px) rotate(45deg);
   }
 
   .hamburger .bar.active:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-6px) rotate(-45deg);
   }
-} 
+}

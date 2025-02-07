@@ -336,3 +336,98 @@ select.form-control {
     gap: 0.75rem;
   }
 } 
+@media (max-width: 320px) {
+  .page-container {
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .page-container h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .export-form-container {
+    padding: 0.75rem;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+
+  .form-control,
+  select.form-control,
+  input[type="text"].form-control {
+    font-size: 14px;
+    height: 36px;
+    padding: 8px;
+  }
+
+  .radio-group {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .radio-label {
+    font-size: 0.9rem;
+  }
+
+  .radio-label input[type="radio"] {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .search-button {
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .search-results {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  .search-results h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .search-results li {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .chatbot-container {
+    width: 290px;
+    height: 450px;
+    right: 15px;
+  }
+
+  .chatbot-header {
+    padding: 10px;
+  }
+
+  .chatbot-messages {
+    padding: 10px;
+  }
+
+  .chatbot-input {
+    padding: 10px;
+    gap: 5px;
+  }
+
+  .chatbot-input input {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  .chatbot-input button {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}
