@@ -15,7 +15,7 @@ const ComplianceCheck = () => {
     // Add system message when file is uploaded
     setMessages(prev => [...prev, {
       type: 'system',
-      content: `Invoice "${uploadedFile.name}" uploaded successfully. How can I help you with this invoice?`
+      content: `Document "${uploadedFile.name}" uploaded successfully. How can I help you with this document?`
     }]);
   };
 
@@ -36,7 +36,7 @@ const ComplianceCheck = () => {
     setTimeout(() => {
       setMessages(prev => [...prev, {
         type: 'bot',
-        content: "Based on the invoice analysis, here are my suggestions: \n1. Include tax registration number\n2. Add payment terms\n3. Ensure line items are properly itemized"
+        content: "Based on the document analysis, the document is compliant with the tax regulations. Is there anything else you would like to know?"
       }]);
       setIsLoading(false);
     }, 1000);
@@ -48,7 +48,7 @@ const ComplianceCheck = () => {
     <div className="page-container">
       <div className="compliance-header">
         <h1>Lading Lens</h1>
-        <p className="subtitle">Get instant compliance analysis and suggestions for your invoices</p>
+        <p className="subtitle">Get instant compliance analysis and suggestions for your document</p>
       </div>
 
       <div className="chat-container">
@@ -68,7 +68,7 @@ const ComplianceCheck = () => {
             <label htmlFor="invoice-upload" className="upload-label">
               <FiUploadCloud className="upload-icon" />
               <span className="upload-text">
-                {file ? file.name : 'Upload Invoice'}
+                {file ? file.name : 'Upload Document'}
               </span>
               <span className="file-types">PDF, JPG, PNG</span>
             </label>
@@ -88,8 +88,8 @@ const ComplianceCheck = () => {
         <div className="chat-main">
           <div className="chat-header">
             <div className="chat-title">
-              <h2>{file ? 'Analyzing: ' + file.name : 'Upload an invoice to start'}</h2>
-              <p>Ask any questions about your invoice</p>
+              <h2>{file ? 'Analyzing: ' + file.name : 'Upload a document to start'}</h2>
+              <p>Ask any questions about your document</p>
             </div>
           </div>
 
@@ -98,8 +98,8 @@ const ComplianceCheck = () => {
               <div className="empty-state">
                 <div className="empty-state-content">
                   <FiUploadCloud className="empty-icon" />
-                  <h3>No Invoice Uploaded</h3>
-                  <p>Upload an invoice to start the analysis</p>
+                  <h3>No Document Uploaded</h3>
+                  <p>Upload a document to start the analysis</p>
                 </div>
               </div>
             )}
@@ -137,7 +137,7 @@ const ComplianceCheck = () => {
               type="text"
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
-              placeholder={file ? "Ask about your invoice..." : "Upload an invoice to start chatting"}
+              placeholder={file ? "Ask about your uploaded document..." : "Upload a document to start chatting"}
               disabled={!file}
             />
             <button type="submit" disabled={!file || !userInput.trim()}>
