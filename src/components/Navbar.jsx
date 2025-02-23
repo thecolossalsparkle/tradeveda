@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import './Navbar.css';
-import logo from '../assets/tradeveda-logo.png';
+import logo from '../assets/liquidmind-logo.svg';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,9 +26,11 @@ const Navbar = () => {
 
         <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
           <Link to="/" className="nav-link" onClick={toggleMenu}>HOME</Link>
+          <Link ro="/dashboard" className="nav-link" onClick={toggleMenu}>DASHBOARD</Link>
           <Link to="/export-verification" className="nav-link" onClick={toggleMenu}>EXPORT DETAILS</Link>
-          <Link to="/compliance-check" className="nav-link" onClick={toggleMenu}>COMPLIANCE CHECK</Link>
           <Link to="/document-verification" className="nav-link" onClick={toggleMenu}>DOCUMENT VERIFICATION</Link>
+          <Link to="/compliance-check" className="nav-link" onClick={toggleMenu}>COMPLIANCE CHECK</Link>
+          
         </div>
       </div>
     </nav>

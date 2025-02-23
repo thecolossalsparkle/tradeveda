@@ -432,3 +432,139 @@ select.form-control {
     font-size: 14px;
   }
 }
+.page-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.chatbot-wrapper {
+  width: 350px;
+  min-width: 350px;
+  align-self: flex-start;
+}
+
+.chatbot-container {
+  height: 790px;
+  margin-right: 20px;
+  width: 500px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #007bff;
+  color: white;
+  border-radius: 8px 8px 0 0;
+}
+
+.chatbot-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.chatbot-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.message.bot {
+  background: #f0f0f0;
+  align-self: flex-start;
+}
+
+.message.user {
+  background: #007bff;
+  color: white;
+  align-self: flex-end;
+}
+
+.chatbot-input {
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  gap: 10px;
+}
+
+.chatbot-input input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+}
+
+.chatbot-input button {
+  padding: 8px 15px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.chatbot-input button:hover {
+  background: #0056b3;
+}
+
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .chatbot-wrapper {
+    width: 100%;
+    min-width: unset;
+    margin-top: 20px;
+  }
+
+  .chatbot-container {
+    height: 400px;
+  }
+
+  .main-content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 320px) {
+    .chatbot-container {
+        height: 275px;
+        width: 271px;
+        top: 496px;
+        margin-right: 9px;
+    }
+}
+

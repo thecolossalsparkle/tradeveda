@@ -1,0 +1,83 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background: #ffffff;
+  padding: 20px 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+  padding: 0 20px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.logo {
+  max-width: 180px;
+  height: auto;
+}
+
+.nav-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Base styles for all nav items */
+.nav-item {
+  height: 56px;
+  margin: 0 12px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #666;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+/* Icon container */
+.nav-item .icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  font-size: 20px;
+}
+
+/* Text label */
+.nav-item span:last-child {
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Active state */
+.nav-item.active {
+  background: #4285f4;
+  color: white;
+}
+
+/* Hover state */
+.nav-item:hover:not(.active) {
+  background: #f0f0f0;
+  color: #1a237e;
+}
+
+/* Ensure consistent dimensions for both normal and active states */
+.nav-item,
+.nav-item.active,
+.nav-item:hover {
+  height: 56px;
+  margin: 0 12px;
+  padding: 0 16px;
+} 
