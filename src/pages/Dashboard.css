@@ -1,69 +1,199 @@
 .dashboard-container {
-  padding: 2rem;
+  padding: 1.5rem;
   background: #f8fafc;
-  margin-left: 250px;
+  min-height: 100vh;
+  transition: margin 0.3s ease;
 }
 
+/* Page Title */
+.dashboard-container h1 {
+  color: #1e293b;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+/* KPI Cards Container */
 .kpi-container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
+/* Individual KPI Card */
 .kpi {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  flex: 1;
-  margin: 0 5px;
-  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.kpi:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px -1px rgba(0, 0, 0, 0.15);
 }
 
 .kpi h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #64748b;
+  margin: 1rem 0 0.5rem;
+  text-align: center;
 }
 
 .kpi p {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 700;
+  color: #1e293b;
   margin: 0.5rem 0;
-}
-
-.kpi-change {
-  font-size: 0.875rem;
-}
-
-.kpi-change.positive {
-  color: green;
-}
-
-.kpi-change.negative {
-  color: red;
 }
 
 .kpi-icon {
   font-size: 2rem;
-  color: #2563eb;
+  padding: 1rem;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #3b82f6;
   margin-bottom: 0.5rem;
 }
 
-.recent-activity {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  width: 70%;
-  margin-left: 150px;
-  margin-bottom: 10px;
+.kpi-change {
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
-.export-markets {
+.kpi-change.positive {
+  color: #10b981;
+}
+
+.kpi-change.negative {
+  color: #ef4444;
+}
+
+/* Activity and Markets Sections */
+.recent-activity, .export-markets {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  width: 70%;
-  margin-left: 250px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.recent-activity h3, .export-markets h3 {
+  color: #1e293b;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Mobile Optimization */
+@media (max-width: 1024px) {
+  .dashboard-container {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .kpi-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .kpi {
+    padding: 1.25rem;
+  }
+
+  .kpi h2 {
+    font-size: 1rem;
+  }
+
+  .kpi p {
+    font-size: 1.75rem;
+  }
+
+  .kpi-icon {
+    font-size: 1.75rem;
+    padding: 0.75rem;
+  }
+
+  .recent-activity, .export-markets {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .kpi-container {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-container {
+    padding: 1rem 0.75rem;
+  }
+
+  .kpi {
+    margin: 0 0.5rem;
+  }
+
+  .recent-activity, .export-markets {
+    margin: 0 0.5rem 1rem;
+    padding: 1rem;
+  }
+
+  .recent-activity h3, .export-markets h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .dashboard-container {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .dashboard-container h1 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .kpi {
+    padding: 1rem;
+  }
+
+  .kpi h2 {
+    font-size: 0.9rem;
+  }
+
+  .kpi p {
+    font-size: 1.5rem;
+  }
+
+  .kpi-icon {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  .kpi-change {
+    font-size: 0.75rem;
+  }
+
+  .recent-activity, .export-markets {
+    padding: 0.75rem;
+    margin: 0 0.25rem 0.75rem;
+  }
 }

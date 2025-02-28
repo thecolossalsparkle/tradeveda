@@ -6,6 +6,7 @@ const ChatBot = () => {
     { text: "Hello! I'm your export assistant. How can I help you today?", isBot: true }
   ]);
   const [inputMessage, setInputMessage] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleSendMessage = (e) => {
     e.preventDefault();
@@ -25,7 +26,18 @@ const ChatBot = () => {
 
   return (
     <div className="chatbot-wrapper">
-      <div className="chatbot-container">
+      <button 
+        className={`chat-toggle-button ${isOpen ? 'active' : ''}`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {isOpen ? (
+          <span>×</span>
+        ) : (
+          <span>💬</span>
+        )}
+      </button>
+
+      <div className={`chatbot-container ${isOpen ? 'open' : ''}`}>
         <div className="chatbot-header">
           <h3>Export Assistant</h3>
         </div>

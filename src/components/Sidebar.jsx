@@ -1,13 +1,15 @@
 import { NavLink } from 'react-router-dom';
-import './Sidebar.css';
+import { useState } from 'react';
+import './SideNav.css';
 
 const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   const navItems = [
-    {
-      title: 'Home',
-      path: '/',
-      icon: '🏠'
-    },
     {
       title: 'Dashboard',
       path: '/dashboard',
@@ -22,36 +24,51 @@ const Sidebar = () => {
       title: 'Verify Document',
       path: '/verify-document',
       icon: '🔍'
-    },
-    {
-      title: 'Compliance Check',
-      path: '/compliance-check',
-      icon: '✓'
     }
   ];
 
   return (
-    <div className="sidebar">
-      <div className="logo-container">
-        <img src="/logo.png" alt="Tradeवेद" className="logo" />
-      </div>
-      <nav>
-        <ul className="nav-items">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              className={({ isActive }) => 
-                `nav-item ${isActive ? 'active' : ''}`
-              }
-            >
-              <span className="icon">{item.icon}</span>
-              <span>{item.title}</span>
+    <>
+      <button 
+        className={`hamburger-menu ${isOpen ? 'active' : ''}`}
+        onClick={toggleSidebar}
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </button>
+
+      <div className={`overlay ${isOpen ? 'active' : ''}`} onClick={toggleSidebar}></div>
+
+      <div className={`sidenav ${isOpen ? 'active' : ''}`}>
+        <div className="sidenav-container">
+          <div className="sidenav-header">
+            <NavLink to="/" className="navbar-logo">
+              <img src="/logo.png" alt="Tradeवेद" className="logo" />
+              <span className="productlogo">Tradeवेद</span>
             </NavLink>
-          ))}
-        </ul>
-      </nav>
-    </div>
+          </div>
+
+          <hr className="nav-divider" />
+
+          <nav className="nav-menu">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                className={({ isActive }) => 
+                  `nav-item ${isActive ? 'active' : ''}`
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                <span className="nav-icon">{item.icon}</span>
+                <span className="nav-title">{item.title}</span>
+              </NavLink>
+            ))}
+          </nav>
+        </div>
+      </div>
+    </>
   );
 };
 

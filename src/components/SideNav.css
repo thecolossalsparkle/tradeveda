@@ -1,140 +1,139 @@
 .sidenav {
-    width: 280px;
+    width: 250px;
     height: 100vh;
-    background-color: #fbf6f6;
+    background-color: #ffffff;
     border-right: 1px solid #e5e7eb;
-    padding: 1.5rem;
+    padding: 1rem;
     position: fixed;
     left: 0;
     top: 0;
-    transition: transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     z-index: 1000;
     overflow-y: auto;
-  }
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
   
-  .sidenav-container {
+.sidenav-container {
     min-height: 100%;
     display: flex;
     flex-direction: column;
     background-color: #fbf6f6;
-  }
+}
   
-  .navbar-logo {
+.navbar-logo {
     display: flex;
     align-items: center;
     text-decoration: none;
     color: #000000;
     margin-bottom: 1rem;
-  }
+}
   
-  .logo {
+.logo {
     height: 50px;
     width: auto;
     max-width: 220px;
     margin-left: 10px;
-  }
+}
   
-  .sidenav-header {
+.sidenav-header {
     padding: 1rem 0.5rem;
     margin-bottom: 5px;
     text-align: center;
-  }
+}
   
-  .brand {
+.brand {
     font-size: 1.75rem;
     font-weight: 700;
     color: #1a1a1a;
     margin: 0;
-  }
+}
   
-  .brand-subtitle {
+.brand-subtitle {
     font-size: 1rem;
     color: #6b7280;
     margin: 0 0 0 0;
-  }
+}
   
-  .nav-divider {
+.nav-divider {
     border: none;
     border-top: 1px solid #e5e7eb;
     margin: 1rem 0;
     width: 100%;
-  }
+}
   
-  .nav-menu {
+.nav-menu {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     margin-top: 1rem;
-  }
+}
   
-  .nav-item {
+.nav-item {
     display: flex;
     align-items: center;
-    padding: 12px 20px;
-    margin: 4px 12px;
+    padding: 0.75rem 1rem;
+    margin: 0.25rem 0;
     text-decoration: none;
-    color: #666;
+    color: #4b5563;
     border-radius: 8px;
-    transition: all 0.3s ease;
-    height: 48px;
-    width: calc(100% - 24px);
-    box-sizing: border-box;
-  }
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
   
-  .nav-icon {
+.nav-icon {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 24px;
     margin-right: 12px;
-    flex-shrink: 0;
-  }
+    font-size: 20px;
+}
   
-  .nav-title {
+.nav-title {
     font-size: 16px;
     font-weight: 500;
     white-space: nowrap;
-  }
+}
   
-  .nav-item.active {
+.nav-item.active {
     background: #4285f4;
     color: white;
-  }
+    box-shadow: 0 2px 4px rgba(66, 133, 244, 0.2);
+}
   
-  .nav-item:hover:not(.active) {
-    background: #f0f0f0;
-    color: #1a237e;
-  }
+.nav-item:hover:not(.active) {
+    background: #f3f4f6;
+    color: #4285f4;
+}
   
-  /* Ensure all icons have the same dimensions */
-  .nav-icon svg {
+/* Ensure all icons have the same dimensions */
+.nav-icon svg {
     width: 24px;
     height: 24px;
-  }
+}
   
-  .hamburger-menu {
+.hamburger-menu {
     display: none;
     position: fixed;
     top: 1rem;
     left: 1rem;
     z-index: 1001;
-    background: #fbf6f6;
-    border: none;
-    cursor: pointer;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
     padding: 0.5rem;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
   
-  .hamburger-menu div {
+.hamburger-menu div {
     width: 25px;
     height: 3px;
     background-color: #1a1a1a;
     margin: 5px 0;
     transition: all 0.3s ease;
-  }
+}
   
-  .overlay {
+.overlay {
     display: none;
     position: fixed;
     top: 0;
@@ -143,90 +142,74 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
-  }
+}
   
-  /* Mobile responsive styles */
-  @media screen and (max-width: 768px) {
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
     .sidenav {
-      transform: translateX(-100%);
-      width: 80%;
-      max-width: 300px;
-      background-color: #fbf6f6;
+        transform: translateX(-100%);
+        width: 75%;
+        max-width: 280px;
+        background-color: #ffffff;
+        padding: 1rem;
     }
   
     .sidenav.active {
-      transform: translateX(0);
-      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+        transform: translateX(0);
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
     }
   
     .hamburger-menu {
-      display: block;
+        display: block;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 1001;
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 0.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
   
     .overlay.active {
-      display: block;
-    }
-  
-    .hamburger-menu.active div:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-  
-    .hamburger-menu.active div:nth-child(2) {
-      opacity: 0;
-    }
-  
-    .hamburger-menu.active div:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
-    }
-  
-    .sidenav-container {
-      padding: 1rem;
+        display: block;
+        backdrop-filter: blur(2px);
     }
   
     .logo {
-      height: 40px;
-      max-width: 150px;
+        height: 40px;
+        max-width: 140px;
     }
   
-    .brand {
-      font-size: 1.4rem;
-    }
-  
-    .brand-subtitle {
-      font-size: 0.9rem;
+    .productlogo {
+        font-size: 1.5rem;
     }
   
     .nav-item {
-      padding: 0.875rem 1rem;
+        padding: 0.75rem 1rem;
+        margin: 0.25rem 0;
     }
+}
   
-    .nav-item span {
-      font-size: 0.9rem;
-    }
-  
-    .nav-item svg {
-      width: 20px;
-      height: 20px;
-    }
-  }
-  
-  /* Small mobile devices */
-  @media screen and (max-width: 480px) {
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
     .sidenav {
-      width: 85%;
+        width: 85%;
+        padding: 0.75rem;
     }
   
-    .brand {
-      font-size: 1.2rem;
+    .productlogo {
+        font-size: 1.25rem;
     }
   
     .nav-item {
-      padding: 0.75rem;
+        padding: 0.625rem 0.875rem;
     }
-  }
+}
   
-  .productlogo {
+.productlogo {
     font-weight: bold;
     font-size: 1.75rem;
     margin-left: 1rem;
-  }
+}
