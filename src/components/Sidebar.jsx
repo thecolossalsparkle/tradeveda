@@ -16,6 +16,26 @@ const Sidebar = () => {
       icon: '📊'
     },
     {
+      title: 'Shipments',
+      path: '#',
+      icon: '🚢'
+    },
+    {
+      title: 'Analytics',
+      path: '#',
+      icon: '📈'
+    },
+    {
+      title: 'Notifications',
+      path: '#',
+      icon: '🔔'
+    },
+    {
+      title: 'Settings',
+      path: '#',
+      icon: '⚙️'
+    },
+    {
       title: 'Export Details',
       path: '/export-details',
       icon: '📄'
@@ -53,17 +73,35 @@ const Sidebar = () => {
 
           <nav className="nav-menu">
             {navItems.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={({ isActive }) => 
-                  `nav-item ${isActive ? 'active' : ''}`
-                }
-                onClick={() => setIsOpen(false)}
-              >
-                <span className="nav-icon">{item.icon}</span>
-                <span className="nav-title">{item.title}</span>
-              </NavLink>
+              <div key={item.path} className="nav-item-container">
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) => 
+                    `nav-item ${isActive ? 'active' : ''}`
+                  }
+                  onClick={() => !item.subItems && setIsOpen(false)}
+                >
+                  <span className="nav-icon">{item.icon}</span>
+                  <span className="nav-title">{item.title}</span>
+                </NavLink>
+                {item.subItems && (
+                  <div className="sub-menu">
+                    {item.subItems.map((subItem) => (
+                      <NavLink
+                        key={subItem.path}
+                        to={subItem.path}
+                        className={({ isActive }) => 
+                          `nav-item sub-item ${isActive ? 'active' : ''}`
+                        }
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <span className="nav-icon">{subItem.icon}</span>
+                        <span className="nav-title">{subItem.title}</span>
+                      </NavLink>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </nav>
         </div>
