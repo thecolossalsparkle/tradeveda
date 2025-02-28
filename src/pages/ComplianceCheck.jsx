@@ -64,6 +64,7 @@ const ComplianceCheck = () => {
               accept=".pdf,.jpg,.jpeg,.png"
               onChange={handleFileUpload}
               id="invoice-upload"
+              style={{ display: 'none' }}
             />
             <label htmlFor="invoice-upload" className="upload-label">
               <FiUploadCloud className="upload-icon" />
@@ -150,4 +151,4 @@ const ComplianceCheck = () => {
   );
 }
 
-export default ComplianceCheck; 
+export default ComplianceCheck;
